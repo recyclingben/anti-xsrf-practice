@@ -1,0 +1,32 @@
+welcome to the login page
+
+<form onsubmit="return false">
+    <input type="text" value="" placeholder="Username" id="username">
+
+    <br>
+
+    <input type="text" value="" placeholder="Password" id="pwd">
+
+    <br>
+
+    <button type="button" onclick="attemptLogin()"></button>
+</form>
+
+<script>
+    const attemptLogin = () => {
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = () => {
+            if(xhttp.status === 200 && xhttp.readyState === 4)
+                window.location = "/home";
+        };
+
+        xhttp.open("POST", "/account/login");
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        xhttp.send(JSON.stringify({
+            username: document.getElementById("username").value,
+            pwd: document.getElementById("pwd").value
+        }));
+    };
+</script>

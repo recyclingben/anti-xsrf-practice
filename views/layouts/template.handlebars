@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Boilerplate -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Display -->
+    <title>{{page.title}} </ Byte Pie</title>
+
+    <!-- Fonts -->
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="/static/test.css">
+</head>
+<body>
+    <header class="navbar p-2">
+      <section class="navbar-section ml-2">
+        <a href="/" class="navbar-brand ml-2 p-1 s-rounded">Spectre.css</a>
+      </section>
+      <section class="navbar-section p-1 px-2">
+          {{#if user.anon}}
+            <a href="/account/login" class="btn btn-primary px-2"> &nbsp; Log in &nbsp; </a>
+          {{else}}
+            <a href="/account" class="btn btn-secondary px-2">
+                 &nbsp; {{ user.username }} &nbsp;
+            </a>
+          {{/if}}
+      </section>
+    </header>
+
+    <div class="container">
+        {{{ body }}}
+    </div>
+</body>
+</html>

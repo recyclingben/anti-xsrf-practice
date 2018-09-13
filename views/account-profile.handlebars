@@ -1,0 +1,18 @@
+{{#unless user.anon}}
+    username : {{ user.username }}
+    <br>
+    favorite color : {{ user.favoriteColor }}
+    <br>
+    <a href="account/logout" name="button" class="btn btn-error px-2">
+        Logout
+    </a>
+{{else}}
+    You must log in to access this information.
+    <br>
+    <br>
+    <a href="/account/login">log in</a>
+    <br>
+    <br>
+    <br>
+    <a href="/account/create">create account</a>
+{{/unless}}

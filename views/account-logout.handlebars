@@ -1,0 +1,18 @@
+{{#unless user.anon}}
+    Click the button to log out of your account {{ user.username }}
+    <br>
+    <button type="button" onclick="logout()">
+        log out
+    </button>
+{{else}}
+    You are not logged in.
+{{/unless}}
+
+<script type="text/javascript">
+    const logout = () => {
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("POST", "/account/logout");
+        xhttp.send();
+    };
+</script>

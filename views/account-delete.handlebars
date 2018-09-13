@@ -1,0 +1,19 @@
+{{#if user.username}}
+    are you sure you want to delete your account '{{ user.username }}'?
+    <br>
+    <button type="button" name="button" onclick="deleteAccount()">
+        YES
+    </button>
+{{else}}
+    You must log in to delete an account.
+{{/if}}
+
+<script type="text/javascript">
+    const deleteAccount = () => {
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.open("POST", "/account/delete");
+        xhttp.setRequestHeader("X-CSRF-Token", "{{{ strEscape csrfToken }}}");
+        xhttp.send();
+    };
+</script>
